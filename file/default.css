@@ -7,15 +7,7 @@ body {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     color: white;
-    text-align: center;
     overflow: auto;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Smooth Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* Links */
@@ -44,16 +36,18 @@ a:hover {
     max-width: 1100px;
     height: auto;
     padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Distributes elements better */
+    flex-wrap: wrap;
 }
 
-/* Text Box */
+/* Left Side Text Box */
 #text {
-    width: 272px;
+    width: 300px;
     height: auto;
-    left: 50%;
-    top: 100px;
-    transform: translateX(-50%);
     position: absolute;
+    left: 20px; /* Positioned to the left */
+    top: 100px;
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 10px;
@@ -68,32 +62,18 @@ a:hover {
     margin-top: 70px;
     line-height: 28px;
     font-weight: bold;
-    animation: glow 1.5s infinite alternate;
 }
 
-/* Glow Effect for Code */
-@keyframes glow {
-    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff9a9e; }
-    to { text-shadow: 0 0 20px #fff, 0 0 40px #ff758c; }
-}
-
-/* Clock Box */
+/* Clock Box (Positioned at the Bottom Left) */
 #clock-box {
     position: absolute;
-    left: 50%;
-    top: 550px;
-    transform: translateX(-50%);
+    left: 40px; /* Pushed to the left */
+    bottom: 40px; /* Placed at the bottom */
     font-size: 28px;
     display: none;
-    text-align: center;
 }
 
-/* Clock Styles */
-#clock {
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Clock Styling */
 #clock .digit {
     font-size: 64px;
     color: #ffcccb;
@@ -118,60 +98,29 @@ a:hover {
     font-weight: bold;
 }
 
-/* Cursor Pointer for Interactive Elements */
-.hand {
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.hand:hover {
-    transform: scale(1.05);
-}
-
-/* Chat Bubble */
-.say {
-    margin-left: 5px;
-    font-weight: bold;
-}
-
-/* Extra Space */
-.space {
-    margin-right: 150px;
-}
-
-/* Message Box */
+/* Message Box (Right Side) */
 #message-box {
     position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 20px; /* Placed on the right side */
+    bottom: 80px;
     font-size: 28px;
     font-family: 'Courier New', monospace;
     background: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-radius: 12px;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
-    animation: fadeIn 2s ease-in-out;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     #wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #text, #clock-box, #message-box {
+        position: static;
         width: 100%;
-        height: auto;
-    }
-
-    #text {
-        width: 90%;
-        left: 5%;
-    }
-
-    #clock-box {
-        font-size: 20px;
-    }
-
-    #message-box {
-        font-size: 20px;
-        width: 90%;
+        margin-bottom: 20px;
     }
 }
